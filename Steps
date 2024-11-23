@@ -1,0 +1,81 @@
+1. Set Up Two EC2 Instances (or VMs)
+Launch two EC2 instances (or VMs) in the same region.
+Use a Linux AMI (Amazon Machine Image) or any other Linux-based operating system.
+Ensure that both instances are in the same security group or VPC for easier networking.
+2. Install NGINX on Both Instances
+Log in to each EC2 instance and install NGINX.
+
+For Ubuntu/Debian:
+
+bash
+Copy code
+sudo apt update
+sudo apt install nginx -y
+For CentOS/RedHat:
+
+bash
+Copy code
+sudo yum update
+sudo yum install nginx -y
+3. Configure NGINX to Show Different Pages
+To differentiate between the two instances, you can modify the NGINX default page.
+
+On Instance 1, edit the default page:
+
+bash
+Copy code
+sudo nano /var/www/html/index.html
+Add some text to the file, such as:
+
+html
+Copy code
+<h1>Welcome to Instance 1</h1>
+On Instance 2, do the same but with different text:
+
+bash
+Copy code
+sudo nano /var/www/html/index.html
+Add:
+
+html
+Copy code
+<h1>Welcome to Instance 2</h1>
+4. Verify NGINX is Running
+Make sure NGINX is running on both instances:
+
+bash
+Copy code
+sudo systemctl start nginx
+sudo systemctl enable nginx
+You can access the public IP of each instance in your browser to ensure they serve different pages.
+
+Example URLs:
+
+http://Instance1_Public_IP
+http://Instance2_Public_IP
+5. Set Up a Load Balancer (AWS Example)
+If you're using AWS, follow these steps to create an Elastic Load Balancer (ELB):
+
+5.1. Create the Load Balancer
+In the AWS Management Console, navigate to the EC2 Dashboard.
+Under Load Balancing, click Load Balancers and then click Create Load Balancer.
+Select Application Load Balancer (ALB).
+Choose internet-facing for the load balancer type.
+Select the VPC and subnets that are associated with your instances.
+5.2. Configure Security Groups
+Ensure the security group allows HTTP traffic (port 80) for the load balancer.
+5.3. Configure Target Groups
+Create a new target group for your instances.
+Select Instances as the target type.
+Use port 80 for HTTP traffic.
+Register your two instances as targets.
+5.4. Configure Health Checks
+Use HTTP for health checks.
+Set the path to / (root) and adjust the healthy/unhealthy threshold settings according to your needs.
+5.5. Complete the Load Balancer Setup
+Review the settings and create the load balancer.
+Once it's active, note the DNS name of the load balancer.
+6. Test the Load Balancer
+Open the DNS name of the load balancer in a browser.
+Keep refreshing the page, and you should see alternating content between Instance 1 and Instance 2.
+Each refresh should route traffic alternately to either of the two instances if the load balancer's algorithm (default is round-robin) is set correctly.
