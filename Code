@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load Balancer Project Team</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        h2 {
+            color: #555;
+        }
+        .team-members {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .team-member {
+            background-color: #e2e2e2;
+            padding: 15px;
+            width: 48%;
+            margin-bottom: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .team-member h3 {
+            margin: 10px 0;
+            color: #222;
+        }
+        .team-member p {
+            color: #666;
+        }
+        .project-overview {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Load Balancer Project Team</h1>
+
+        <div class="project-overview">
+            <h2>Project Overview</h2>
+            <p>
+                Our team is working on creating a load balancer that distributes incoming network traffic efficiently across multiple servers to ensure optimal performance and reliability. The load balancer will handle web traffic, balancing the load between multiple backend servers while improving scalability and fault tolerance.
+            </p>
+        </div>
+
+        <div class="team-members">
+            <div class="team-member">
+                <h3>Madhura Phutane</h3>
+            </div>
+            <div class="team-member">
+                <h3>Prajyot Upadhye</h3>
+            </div>
+            <div class="team-member">
+                <h3>Shubham Biradar</h3>
+            </div>
+            <div class="team-member">
+                <h3>Vrushali Shelke</h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
